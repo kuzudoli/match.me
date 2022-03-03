@@ -1,0 +1,111 @@
+body {
+    height: 100vh;
+    margin: 0;
+    font-family: 'Courier New', Courier, monospace;
+    background-color: rgb(39, 39, 39);
+}
+
+#box{
+    position: absolute;
+    left: 50%;
+    top: 45%;
+    transform: translate(-50%,-45%);
+}
+
+/*#region index match.me button */
+.fill {
+    font-size: 40px;
+    font-weight: 200;
+    letter-spacing: 1px;
+    padding: 13px 50px 13px;
+    outline: 0;
+    border: 1px solid white;
+    cursor: pointer;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0);
+    color: white;
+  }
+  
+  .fill::after {
+    content: "";
+    background-color: rgb(255, 50, 118);
+    width: 100%;
+    z-index: -1;
+    position: absolute;
+    height: 100%;
+    top: 7px;
+    left: 7px;
+    transition: 0.2s;
+  }
+  
+  .fill:hover{
+    color: rgb(255, 50, 118);
+    background-color: white;
+    border: 1px solid rgb(255, 50, 118);
+    transition: 0.2s;
+  }
+
+  .fill:hover::after {
+    top: 0px;
+    left: 0px;
+  }
+/*#endregion*/
+
+/*#region Form*/
+.form{
+    height: 650px;
+    width: 700px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    background-color: rgba(0, 0, 0, 0);
+    box-shadow: 0px 0px 20px rgba(0,0,0,0.3);
+    padding: 15px;
+}
+.question{
+    color: white;
+    font-size: 20px;
+}
+.radio{
+    font-weight: 500;
+    text-transform: capitalize;
+    display:inline-block;
+    vertical-align:middle;
+    position: relative;
+    padding-left: 30px;
+    cursor: pointer;
+}
+.radio + .radio{
+    margin-left: 20px;
+}
+.radio input[type="radio"]{
+    display: none;
+}
+.radio span{
+    height: 17px;
+    width: 17px;
+    border-radius: 50%;
+    border: 3px solid rgb(255, 50, 118);
+    display: block;
+    position: absolute;
+    left: 0;
+    top:6px;
+}
+.radio span::after{
+    content: "";
+    height: 7px;
+    width: 7px;
+    background-color: rgb(255, 50, 118);
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%) scale(0);
+    border-radius: 50%;
+    transition: 150ms ease-in-out 0s;
+}
+.radio input[type="radio"]:checked ~ span::after{
+    transform: translate(-50%,-50%) scale(1);
+}
+/*#endregion*/
