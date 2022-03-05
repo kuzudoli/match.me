@@ -3,15 +3,15 @@ const Schema = mongoose.Schema;
 
 const UserSchema = new Schema({
     name:String,
-    surName:String,
+    surname:String,
     email:String,
     password:String,
     answers:{
-        a1:Boolean,
-        a2:Boolean,
-        a3:Boolean,
-        a4:Boolean,
-        a5:Boolean
+        a1:String,
+        a2:String,
+        a3:String,
+        a4:String,
+        a5:String
     }
 });
 
