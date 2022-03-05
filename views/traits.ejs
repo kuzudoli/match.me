@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include("./partials/_header.ejs") %>
+    <body>
+        <div class="navbar">
+            <a href="/"><img src="img/logo.png" width="50px" style="margin: 20px;"></a>
+            <ul id="menuItems">
+                <a href="/myresult"><li>My Result</li></a>
+                <a href="/traits"><li>Traits</li></a>
+                <a href="/"><li>Logout</li></a>
+            </ul>
+        </div>
+        <div class="form">
+            <form method="post" action="/user">
+                <% for(let i=1;i<=5;i++){ %>
+                    <div class="question" id='question<%=i%>'>
+                        <p class="question-text">Lorem ipsum dolor sit amet?</p>
+                        <div class="radio-group">
+                            <label class="radio">
+                                <% if(userAnswers[i-1] == "yes") { %>
+                                    <input type="radio" value="yes" name="answers[<%=i-1%>]" checked> Yes <span></span>
+                                <% } else{ %>
+                                    <input type="radio" value="yes" name="answers[<%=i-1%>]"> Yes <span></span>
+                                <% } %>
+                            </label>
+                            <label class="radio">
+                                <% if(userAnswers[i-1] == "no") { %>
+                                    <input type="radio" value="no" name="answers[<%=i-1%>]" checked> No <span></span>
+                                <% } else{ %>
+                                    <input type="radio" value="no" name="answers[<%=i-1%>]"> No <span></span>
+                                <% } %>
+                            </label>
+                        </div>
+                    </div>
+                <% } %>
+                <button type="submit" class="fill" id="submitButton">Submit</button>
+            </form>
+        </div>
+    </body>
+</html>
