@@ -20,20 +20,19 @@ exports.updateAnswers = async(req,res)=>{
     user.answers.a10 = req.body.answers[9];
     await user.save();
 
-    matchUser(user);
+    matchUser(user._id);
 
     res.redirect("/myresult");
 }
 
-const matchUser = async(currentUser) => {
+const matchUser = async(userID) => {
     let matchPoint;
-    let matchID=null;
-    const userList = await User.find({_id:{$ne:currentUser._id}});//Get user list without current user
+    let currentUser = await User.findOne({_id:userID});//Get current user;
+    const userList = await User.find({_id:{$ne:userID}});//Get user list without current user
     userList.forEach(async(user) => {
         //answers
         if(user.matchID == null){
             matchPoint = 0;
-
             if(user.answers.a1 == currentUser.answers.a1)
                 matchPoint++;
             if(user.answers.a2 == currentUser.answers.a2)
@@ -56,13 +55,9 @@ const matchUser = async(currentUser) => {
                 matchPoint++;
             
             if(matchPoint>=7 && matchPoint <=10){
-                matchID = user._id;
-                user.matchID = currentUser._id;
-                //console.log(user.name + ": " + matchPoint + ": " + matchID);
-
-                currentUser.matchID = matchID;
-                await currentUser.save();
-            }  
-        }   
+                await User.findByIdAndUpdate(currentUser._id, {matchID:user._id})
+                await User.findByIdAndUpdate(user._id, {matchID:currentUser._id})
+            }
+        }
     });
 }

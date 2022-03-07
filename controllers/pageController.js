@@ -1,5 +1,6 @@
 const { use } = require("express/lib/application");
 const User = require("../modals/Users")
+const Question = require("../modals/Questions")
 const authController = require("./authController")
 
 //Index
@@ -13,6 +14,7 @@ exports.getTraitsPage = async(req,res)=>{
         res.redirect("/auth");
     else{
         const user = await User.findOne({email:authController.store.get("email")});
+        const questionList = await Question.findOne();
         const userAnswers = [];
         
         userAnswers.push(user.answers.a1);
@@ -26,7 +28,10 @@ exports.getTraitsPage = async(req,res)=>{
         userAnswers.push(user.answers.a9);
         userAnswers.push(user.answers.a10);
 
-        res.render("traits",{userAnswers});
+        res.render("traits",{
+            userAnswers:userAnswers,
+            questionList:questionList != undefined ? questionList.Description : "undefined"
+        });
     }
 }
 
