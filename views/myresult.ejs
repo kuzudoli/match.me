@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include("./partials/_header.ejs") %>
+    <body>
+        <div class="navbar">
+            <a href="/"><img src="img/logo.png" width="50px" style="margin: 20px;"></a>
+            <ul id="menuItems">
+                <a href="/myresult"><li>My Result</li></a>
+                <a href="/traits"><li>Traits</li></a>
+                <a href="/auth"><li>Logout</li></a>
+            </ul>
+        </div>
+        <div class="form" style="overflow-y: auto;">
+            <% if(typeof(email) != "undefined"){ %>
+                <ul id="matchInfo">
+                    <li><%=name%> <%=surname%></li>
+                    <li><a href="mailto:enes@mail.com"><%=email%></a></li>
+                </ul>
+            <% }else{ %>
+                <ul id="matchInfo">
+                    <li><%=notFoundMessage%></li>
+                </ul>
+            <% } %>
+        </div>
+    </body>
+</html>

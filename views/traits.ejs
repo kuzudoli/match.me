@@ -7,14 +7,14 @@
             <ul id="menuItems">
                 <a href="/myresult"><li>My Result</li></a>
                 <a href="/traits"><li>Traits</li></a>
-                <a href="/"><li>Logout</li></a>
+                <a href="/auth"><li>Logout</li></a>
             </ul>
         </div>
         <div class="form">
             <form method="post" action="/user">
-                <% for(let i=1;i<=5;i++){ %>
+                <% for(let i=1;i<=10;i++){ %>
                     <div class="question" id='question<%=i%>'>
-                        <p class="question-text">Lorem ipsum dolor sit amet?</p>
+                        <p class="question-text"><%=i%> Lorem ipsum dolor sit amet?</p>
                         <div class="radio-group">
                             <label class="radio">
                                 <% if(userAnswers[i-1] == "yes") { %>
