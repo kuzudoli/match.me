@@ -11,7 +11,16 @@ const UserSchema = new Schema({
         a2:String,
         a3:String,
         a4:String,
-        a5:String
+        a5:String,
+        a6:String,
+        a7:String,
+        a8:String,
+        a9:String,
+        a10:String
+    },
+    matchID:{
+        type:String,
+        default:null
     }
 });
 
