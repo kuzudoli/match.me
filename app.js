@@ -24,6 +24,7 @@ app.use(express.json())//converts encoded body data to json
 //GET REQUESTS
 app.get('/',pageController.getHome)
 app.get('/traits',pageController.getTraitsPage)
+app.get('/myresult',pageController.getResultPage)
 app.get('/auth',pageController.getAuthPage)
 
 //POST REQUESTS
