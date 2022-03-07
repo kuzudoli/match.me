@@ -147,11 +147,12 @@ body {
     transform: translate(-50%,-50%) scale(1);
 }
 
-#submitButton {
+#submitButton{
     display: block;
     float: right;
     font-size: 15px;
     padding: 5px 30px 5px;
+    margin-left: 20px;
 }
 
 /*#endregion*/

@@ -12,9 +12,13 @@
         </div>
         <div class="form">
             <form method="post" action="/user">
-                <% for(let i=1;i<=5;i++){ %>
+                <% for(let i=1;i<=10;i++){ %>
                     <div class="question" id='question<%=i%>'>
-                        <p class="question-text">Lorem ipsum dolor sit amet?</p>
+                        <% if(questionList != "undefined"){ %>
+                            <p class="question-text"><%=questionList[i-1]%></p>
+                        <% }else{ %>
+                            <p class="question-text">Question not found.</p>
+                        <% } %>
                         <div class="radio-group">
                             <label class="radio">
                                 <% if(userAnswers[i-1] == "yes") { %>
