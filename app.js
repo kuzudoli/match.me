@@ -7,7 +7,7 @@ const authController = require("./controllers/authController")
 
 const app = express()
 
-mongoose.connect("mongodb://localhost/matchme-db").then(()=>{
+mongoose.connect("mongodb+srv://kuzudoli:HqKlgCI6yFj8PSx8@cluster0.hbmul.mongodb.net/matchme-db?retryWrites=true&w=majority").then(()=>{
     console.log("DB Connected!");
 }).catch((err)=>{
     console.log(err);
