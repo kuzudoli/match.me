@@ -16,7 +16,12 @@ exports.register = async(req,res)=>{
                 a2:"no",
                 a3:"no",
                 a4:"no",
-                a5:"no"
+                a5:"no",
+                a6:"no",
+                a7:"no",
+                a8:"no",
+                a9:"no",
+                a10:"no",
             }
         })
 
