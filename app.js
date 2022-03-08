@@ -32,7 +32,8 @@ app.post('/login',authController.login)
 app.post('/register',authController.register);
 app.post('/user',userController.updateAnswers)
 
-
-app.listen(5000,()=>{
-    console.log("PORT 5000 listening...")
+//Server
+const port = process.env.PORT || 5000;
+app.listen(port,()=>{
+    console.log(`PORT ${port} listening...`)
 });
